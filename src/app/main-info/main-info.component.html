@@ -1,0 +1,15 @@
+<div class="element-bg-img">
+  <img src="images/1.jpg" alt="" class="img-responsive" />
+</div>
+<div class="element-left-bottom">
+  <div class="ele-strip">
+    <ul>
+      <ng-container *ngFor="let city of cities; last as isLast">
+        <li [class.anc-bor]="isLast">
+          <a (click)="selectedCityId = city.id">{{ city.name }}</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <app-about-info [cityInfo]="cities.find(x => x.id === selectedCityId)"> </app-about-info>
+</div>
