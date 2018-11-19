@@ -15,4 +15,8 @@ export class MainInfoComponent {
     this.cities = data;
     this.selectedCityId = this.cities[0].id;
   }
+
+  public getSelectedCityModel(selectedCityId: number): ICityInfoModel {
+    return this.cities.find(x => x.id === selectedCityId);
+  }
 }

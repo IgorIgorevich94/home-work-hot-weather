@@ -11,5 +11,5 @@
       </ng-container>
     </ul>
   </div>
-  <app-about-info [cityInfo]="cities.find(x => x.id === selectedCityId)"> </app-about-info>
+  <app-about-info [cityInfo]="getSelectedCityModel(selectedCityId)"> </app-about-info>
 </div>
