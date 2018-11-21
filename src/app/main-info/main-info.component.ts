@@ -1,22 +1,18 @@
-import { Component } from '@angular/core';
-import { ICityInfoModel } from '../data/city-info-model';
-import { data } from '../data/cities-data';
+import { Component, Inject } from "@angular/core";
+import {
+  ICityInfoService,
+  ICityInfoServiceToken
+} from "../bl/abstract/i-city-info-service";
 
 @Component({
-  selector: 'app-main-info',
-  templateUrl: './main-info.component.html',
-  styleUrls: ['./main-info.component.less']
+  selector: "app-main-info",
+  templateUrl: "./main-info.component.html",
+  styleUrls: ["./main-info.component.less"]
 })
 export class MainInfoComponent {
-  public readonly cities: ICityInfoModel[];
-  public selectedCityId: number;
+  public readonly cityInfoService: ICityInfoService;
 
-  constructor() {
-    this.cities = data;
-    this.selectedCityId = this.cities[0].id;
-  }
-
-  public getSelectedCityModel(selectedCityId: number): ICityInfoModel {
-    return this.cities.find(x => x.id === selectedCityId);
+  constructor(@Inject(ICityInfoServiceToken) cityInfoService: ICityInfoService) {
+    this.cityInfoService = cityInfoService;
   }
 }

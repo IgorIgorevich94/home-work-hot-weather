@@ -4,12 +4,12 @@
 <div class="element-left-bottom">
   <div class="ele-strip">
     <ul>
-      <ng-container *ngFor="let city of cities; last as isLast">
+      <ng-container *ngFor="let city of cityInfoService.getCities(); last as isLast">
         <li [class.anc-bor]="isLast">
-          <a (click)="selectedCityId = city.id">{{ city.name }}</a>
+          <a (click)="cityInfoService.selectCity(city.id)">{{ city.name }}</a>
         </li>
       </ng-container>
     </ul>
   </div>
-  <app-about-info [cityInfo]="getSelectedCityModel(selectedCityId)"> </app-about-info>
+  <app-about-info [cityInfo]="cityInfoService.getSelectedCity()"> </app-about-info>
 </div>

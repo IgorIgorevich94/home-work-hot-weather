@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from "@angular/core";
+import { IWeatherModel } from "../data/weather-model";
+import { ICityInfoService, ICityInfoServiceToken } from "../bl/abstract/i-city-info-service";
 
 @Component({
-  selector: 'app-weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.less']
+  selector: "app-weather",
+  templateUrl: "./weather.component.html",
+  styleUrls: ["./weather.component.less"]
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent {
 
-  constructor() { }
+  private readonly cityInfoService: ICityInfoService;
+  public get selectedCityWeather(): IWeatherModel {
+    return this.cityInfoService.getSelectedCityWeather();
+  }
 
-  ngOnInit() {
+  constructor(@Inject(ICityInfoServiceToken) cityInfoService: ICityInfoService) {
+    this.cityInfoService = cityInfoService;
   }
 
 }
