@@ -12,6 +12,10 @@ import {
 export class MainInfoComponent {
   public readonly cityInfoService: ICityInfoService;
 
+  public get selectedCityImage(): string {
+    return this.cityInfoService.getSelectedCity().img;
+  }
+
   constructor(@Inject(ICityInfoServiceToken) cityInfoService: ICityInfoService) {
     this.cityInfoService = cityInfoService;
   }

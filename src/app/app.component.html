@@ -5,8 +5,8 @@
       <app-main-info></app-main-info>
 	   </div>
 		<div class="element-right">
-			<app-weather></app-weather>
-			<app-social-info></app-social-info>
+			<app-weather [selectedCityWeather]="cityInfoService.getSelectedCityWeather()"></app-weather>
+			<app-social-info [selectedSocialInfo]="cityInfoService.getSelectedCitySocialInfo()"></app-social-info>
 		</div>
 	  <div class="clear"> </div>
 </div>

@@ -1,5 +1,4 @@
-import { Component, Inject } from "@angular/core";
-import { ICityInfoServiceToken, ICityInfoService } from "../bl/abstract/i-city-info-service";
+import { Component, Input } from "@angular/core";
 import { ISocialInfoModel } from "../data/social-info-model";
 
 @Component({
@@ -8,12 +7,10 @@ import { ISocialInfoModel } from "../data/social-info-model";
   styleUrls: ["./social-info.component.less"]
 })
 export class SocialInfoComponent {
-  private readonly cityInfoService: ICityInfoService;
-  public get selectedCitySocialInfo(): ISocialInfoModel {
-    return this.cityInfoService.getSelectedCitySocialInfo();
-  }
+  public socialInfoModel: ISocialInfoModel;
 
-  constructor(@Inject(ICityInfoServiceToken) cityInfoService: ICityInfoService) {
-    this.cityInfoService = cityInfoService;
+  @Input()
+  public set selectedSocialInfo(value: ISocialInfoModel) {
+    this.socialInfoModel = value;
   }
 }

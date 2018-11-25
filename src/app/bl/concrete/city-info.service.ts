@@ -14,10 +14,10 @@ export class CityInfoService implements ICityInfoService, OnInit {
 
   constructor() {
     this.cities = data;
+    this.selectedCityId = this.cities[0].id;
   }
 
   ngOnInit() {
-    this.selectedCityId = this.cities[0].id;
   }
 
   public getSelectedCityWeather(): IWeatherModel {

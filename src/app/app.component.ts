@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
+import { ICityInfoServiceToken, ICityInfoService } from "./bl/abstract/i-city-info-service";
 
 @Component({
   selector: "app-root",
@@ -7,4 +8,10 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "home-work-hot-weather";
+
+  public readonly cityInfoService: ICityInfoService;
+
+  constructor(@Inject(ICityInfoServiceToken) cityInfoService: ICityInfoService) {
+    this.cityInfoService = cityInfoService;
+  }
 }
